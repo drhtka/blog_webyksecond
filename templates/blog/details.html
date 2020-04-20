@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Мой блог{{ posts.title }}{% endblock %}
+{% block side_bar %}
+    <h4><p><font color="green">Мой блог</font></p></h4>
+    {% if request.user.is_authenticated %}
+        <h3><a href="{% url "logout" %}">Выйти</a></h3>
+        {% else %}
+             <li><a href="{% url "login" %}">Войти</a></li><br>
+        {% endif %}
+{% endblock %}
+
+{% block content %}
+{%  for pub in posts %}
+    <p>Номер: {{ pub.id }}
+    <h3>Заголовок: {{ pub.title }}</h3></p>
+    <h3>Автор: {{ pub.author }}</h3>
+    <h4>дата публикации: {{ pub.created }}<br></h4>
+     <p> Текст: {{ pub.text|truncatewords:10 }}<br>
+    </p><br>
+    {% endfor %}
+{% endblock content%}
+
