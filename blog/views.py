@@ -14,6 +14,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 # Create your views here.
 
+class MainView(TemplateView):
+    template_name = 'blog/main.html'
+
 class IndexTemplateView(LoginRequiredMixin, TemplateView):
     #  стартовая траница со всами постами всех зарегестированных пользователей
     def get(self, request):
@@ -33,3 +36,6 @@ class PostListView(LoginRequiredMixin, ListView):
         u = self.request.user
         qs = super().get_queryset()
         return qs.filter(author=u)
+
+class AddTestView(LoginRequiredMixin, TemplateView):
+    pass

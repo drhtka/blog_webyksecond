@@ -7,9 +7,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from blog.views import IndexTemplateView, PostListView
+from blog.views import IndexTemplateView, PostListView, MainView
 
 urlpatterns = [
+    url(r'^', MainView.as_view(), name='main'),
     url(r'^index/', IndexTemplateView.as_view(), name='index'),
     url(r'^postlist/', PostListView.as_view(), name='postlist'),
 ]

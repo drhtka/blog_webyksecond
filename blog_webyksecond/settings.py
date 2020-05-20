@@ -149,7 +149,7 @@ STATICFILES_FINDERS = (
 
 LOGIN_REDIRECT_URL = 'index'
 
-LOGIN_URL = '/accounts/logout/'
+LOGIN_URL = '/login'
 
 #"""
 EMAIL_HOST = 'smtp.gmail.com'
