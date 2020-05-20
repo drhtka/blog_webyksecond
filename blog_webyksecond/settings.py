@@ -148,8 +148,10 @@ STATICFILES_FINDERS = (
 )
 
 LOGIN_REDIRECT_URL = 'index'
-
-LOGIN_URL = '/login'
+LOGIN_URL = '/accounts/logout/'
+#from django.urls import reverse_lazy
+#LOGIN_URL = reverse_lazy('login')
+#LOGOUT_URL = reverse_lazy('logout')
 
 #"""
 EMAIL_HOST = 'smtp.gmail.com'
