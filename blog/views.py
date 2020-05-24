@@ -20,24 +20,28 @@ class MainView(TemplateView):
     template_name = 'blog/main.html'
 
 class IndexTemplateView(LoginRequiredMixin, TemplateView):
-    #  стартовая траница со всами постами всех зарегестированных пользователей
+    #  стартовая страница со всами постами всех зарегестированных пользователей
     def get(self, request):
         template_name = 'blog/index.html'
         all_posts = Blogs.objects.all()
+
         context = {'all_posts': all_posts}
         print(all_posts)
         return render(request, template_name, context)
 
 class PostListView(LoginRequiredMixin, ListView):
-    #  страница со всами постами зарегестированного пользователя
+    #  страница со всеми постами зарегестированного пользователя
     model = Blogs
     context_object_name = "posts"
     template_name = 'blog/details.html'
     login_url = 'login'
-
+    print('qs')
     def get_qetyset(self):
         u = self.request.user
+        print(u)
+        print('u')
         qs = super().get_queryset()
+        print(qs)
         return qs.filter(author=u)
 
 class AddTestView(LoginRequiredMixin, TemplateView):

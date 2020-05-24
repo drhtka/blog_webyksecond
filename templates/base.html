@@ -15,7 +15,10 @@
         {% else %}
              <h2><li><a href="{% url "login" %}">Войти</a></li></h2>
         {% endif %}
+
 {% endblock %}
+        <h4><p><a href="{% url 'index' %}">Главная</a></p></h4>
+
                 {% if user.is_authenticated %}
               <h3>Ваше имя: {{ user.first_name }}</h3>
               <h3> Ваш логин: {{ user.username }}</h3>

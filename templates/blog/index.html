@@ -4,15 +4,14 @@
              <a href="{% url "logout" %}">Выйти</a>
         {% else %}
              <h2><li><a href="{% url "login" %}">Войти</a></li></h2>
+
         {% endif %}
+    <p><a href="{% url 'list' %}">Мой блог</a></p>
 {% endblock %}
                 {% if user.is_authenticated %}
               <h3>Ваше имя: {{ user.first_name }}</h3>
-
               <h3> Ваш логин: {{ user.username }}</h3>
-
                 {% endif %}
-
             {% block content %}
   <style>
    p {

@@ -14,7 +14,7 @@ from blog.views import IndexTemplateView, PostListView, MainView
 urlpatterns = [
 
     url(r'^index/', IndexTemplateView.as_view(), name='index'),
-    url(r'^postlist/', PostListView.as_view(), name='postlist'),
+    url(r'^list/', PostListView.as_view(), name='list'),
     #url(r'^', MainView.as_view(), name='main'),
     #url(r'^logout/$', views.LogoutView.as_view(), name='logout'),
     #url(r'^login/$', views.LoginView.as_view(), name='login'),
