@@ -14,7 +14,18 @@
                 {% endif %}
 
             {% block content %}
+  <style>
+   p {
+    text-indent: 20px; /* Отступ строки в пикселах */
+   }
+  </style>
+                {% for all_posts_s in all_posts %}
+                    <h4>Заголовок:{{ all_posts_s.title }}</h4>
+                    <p>Автор: {{ all_posts_s.author }}</p>
+                    <p>дата публикации: {{ all_posts_s.created }}<br></p>
+                    <p>Текст: {{ all_posts_s.text|truncatewords:10 }}<br><br></p>
 
+                {% endfor %}
             {% endblock content %}
         {% block lcontent %}{% endblock lcontent %}
         </div>

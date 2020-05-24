@@ -15,6 +15,8 @@ from django.core.mail import send_mail
 # Create your views here.
 
 class MainView(TemplateView):
+    #  стартовая траница для не зарегстрированных
+
     template_name = 'blog/main.html'
 
 class IndexTemplateView(LoginRequiredMixin, TemplateView):
@@ -23,6 +25,7 @@ class IndexTemplateView(LoginRequiredMixin, TemplateView):
         template_name = 'blog/index.html'
         all_posts = Blogs.objects.all()
         context = {'all_posts': all_posts}
+        print(all_posts)
         return render(request, template_name, context)
 
 class PostListView(LoginRequiredMixin, ListView):
