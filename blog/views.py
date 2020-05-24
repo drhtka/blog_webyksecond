@@ -24,7 +24,6 @@ class IndexTemplateView(LoginRequiredMixin, TemplateView):
     def get(self, request):
         template_name = 'blog/index.html'
         all_posts = Blogs.objects.all()
-
         context = {'all_posts': all_posts}
         print(all_posts)
         return render(request, template_name, context)
@@ -44,5 +43,6 @@ class PostListView(LoginRequiredMixin, ListView):
         print(qs)
         return qs.filter(author=u)
 
-class AddTestView(LoginRequiredMixin, TemplateView):
-    pass
+class AddPostView(LoginRequiredMixin, TemplateView):
+    def get(self, request):
+        return render(request, 'blog/addpost.html')

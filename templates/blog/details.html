@@ -2,12 +2,7 @@
 
 {% block title %}Мой блог{% endblock %}
 {% block side_bar %}
-    <h4><p><font color="green">Мой блог</font></p></h4>
-    {% if request.user.is_authenticated %}
-        <h3><a href="{% url "logout" %}">Выйти</a></h3>
-        {% else %}
-             <li><a href="{% url "login" %}">Войти</a></li><br>
-        {% endif %}
+    <h2><p><font color="green">Мой блог</font></p></h2>
 {% endblock %}
 
 {% block content %}

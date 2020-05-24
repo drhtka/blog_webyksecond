@@ -6,7 +6,7 @@
              <h2><li><a href="{% url "login" %}">Войти</a></li></h2>
 
         {% endif %}
-    <p><a href="{% url 'list' %}">Мой блог</a></p>
+<h2><p><a href="{% url 'list' %}">Мой блог</a></p></h2>
 {% endblock %}
                 {% if user.is_authenticated %}
               <h3>Ваше имя: {{ user.first_name }}</h3>
@@ -25,8 +25,6 @@
                     <p>Текст: {{ all_posts_s.text|truncatewords:10 }}<br><br></p>
 
                 {% endfor %}
+
             {% endblock content %}
         {% block lcontent %}{% endblock lcontent %}
-        </div>
-</body>
-</html>
